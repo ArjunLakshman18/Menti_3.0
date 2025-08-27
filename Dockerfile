@@ -5,4 +5,4 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 ENV PORT 8080
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "main_backend_app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:${PORT}", "--workers=1", "main_backend_app:app"]
